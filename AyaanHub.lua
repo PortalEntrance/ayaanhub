@@ -8,8 +8,22 @@ local mainTab = ayaanHub:MakeTab({
 	PremiumOnly = false
 })
 
+local aboutTab = ayaanHub:MakeTab({
+	Name = "About",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 local hubsSection = mainTab:AddSection({
 	Name = "Script Hubs"
+})
+
+local aboutSection = aboutTab:AddSection({
+	Name = "About"
+})
+
+local developerSection = aboutTab:AddSection({
+	Name = "Developer Stuff"
 })
 
 hubsSection:AddButton({
@@ -52,8 +66,8 @@ hubsSection:AddToggle({
     Default = false,
 	Callback = function()
             OrionLib:MakeNotification({
-                    Name = "bro just use infinite yield",
-                    Content = "its already loaded for u in the corner",
+                    Name = "Infinite Yield Loaded!",
+                    Content = "If your trying to use noclip, use infinite yield.",
 	                Image = "rbxassetid://4483345998",
 	                Time = 2
             })
@@ -61,3 +75,17 @@ hubsSection:AddToggle({
             loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
   	end    
 })
+
+hubsSection:AddButton({
+	Name = "Darkrai X (bedwars)",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/GamingScripter/bedwars/main/Script", true))()
+  	end    
+})
+
+aboutSection:AddParagraph("Developer","The main developer is: RenderQ#1046, credits to all the people who made the scripts in this script!")
+local HttpService = game:GetService("HttpService")
+local RandomString = HttpService:GenerateGUID(false)
+local AnotherRandomString = HttpService:GenerateGUID(false)
+developerSection:AddParagraph("ID is:",RandomString)
+developerSection:AddParagraph("DTBMANGO_4 is:",AnotherRandomString)
